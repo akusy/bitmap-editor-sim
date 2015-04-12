@@ -1,19 +1,29 @@
 class Cli
+  include Validators::CliValidator
 
-  def initialize input
-    @input = input
-    @argv = commands
-  end
+  def call input
+    argv = commands(input)
 
-  def call
-    return 'break' if argv[0] == 'X'
+    case argv[0]
+    when 'I'
+    when 'C'
+    when 'L'
+    when 'V'
+    when 'H'
+    when 'F'
+    when 'S'
+    when 'X'
+      return 'break'
+    else
+      p "Unrecognized command"
+    end
   end
 
   private
 
   attr_reader :input, :argv
 
-  def commands
+  def commands input
     input.split(' ')
   end
 end

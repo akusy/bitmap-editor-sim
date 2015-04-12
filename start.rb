@@ -6,11 +6,12 @@ Bundler.require(:default)
 
 require_all 'lib'
 
+cli = Cli.new
 loop do
   p "X - Terminate the session"
 
   print "> "
   input = gets.chomp
 
-  break if Cli.new(input).call == 'break'
+  break if cli.call(input) == 'break'
 end
