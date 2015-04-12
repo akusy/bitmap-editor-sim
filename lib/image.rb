@@ -19,7 +19,6 @@ class Image
   end
 
   def print_bitmap
-    binding.pry
     bitmap.each do |row|
       row.each do |pixel|
         print pixel
