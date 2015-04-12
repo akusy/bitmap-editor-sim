@@ -6,8 +6,20 @@ class Editor
   end
 
   def clear_image
-    raise NoImageError unless image.present?
+    check_image
 
     image.clear_or_create_bitmap
+  end
+
+  def print_image
+    check_image
+
+    image.print_bitmap
+  end
+
+  private
+
+  def check_image
+    raise NoImageError, "No image bitmap" if image.nil?
   end
 end

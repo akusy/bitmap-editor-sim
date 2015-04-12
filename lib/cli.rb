@@ -18,6 +18,7 @@ class Cli
     when 'H'
     when 'F'
     when 'S'
+      show_current_image_command
     when 'X'
       return 'break'
     else
@@ -41,5 +42,9 @@ class Cli
 
   def clear_the_table_command
     editor.clear_image
+  end
+
+  def show_current_image_command
+    editor.print_image
   end
 end

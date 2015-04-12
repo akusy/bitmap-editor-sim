@@ -6,8 +6,8 @@ class Image
   COLOUR_RANGE = 'A'..'Z'
 
   def initialize m, n
-    @height = m.to_i
-    @width = n.to_i
+    @width = m.to_i
+    @height = n.to_i
 
     clear_or_create_bitmap
   end
@@ -16,6 +16,16 @@ class Image
     bitmap_size_validator
 
     @bitmap = Array.new(width) { Array.new(height, DEFAULT_COLOUR) }
+  end
+
+  def print_bitmap
+    binding.pry
+    bitmap.each do |row|
+      row.each do |pixel|
+        print pixel
+      end
+      print "\n"
+    end
   end
 
   attr_reader :width, :height, :bitmap
