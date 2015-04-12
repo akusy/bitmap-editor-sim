@@ -5,3 +5,12 @@ require 'bundler/setup' if File.exists?(ENV['BUNDLE_GEMFILE'])
 Bundler.require(:default)
 
 require_all 'lib'
+
+loop do
+  p "X - Terminate the session"
+
+  print "> "
+  input = gets.chomp
+
+  break if Cli.new(input).call == 'break'
+end
