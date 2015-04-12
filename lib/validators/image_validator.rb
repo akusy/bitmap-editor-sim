@@ -7,6 +7,11 @@ module Validators
       end
     end
 
+    def bitmap_range_excess_validator x, y
+      unless x.between?(1, width) && y.between?(1, height)
+        raise BitmapSizeError, "Image size has been exceeded"
+      end
+    end
 
   end
 end
