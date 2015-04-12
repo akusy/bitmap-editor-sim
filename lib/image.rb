@@ -3,10 +3,11 @@ class Image
 
   DEFAULT_COLOUR = 'O'
   ARRAY_RANGE = 1..250
+  COLOUR_RANGE = 'A'..'Z'
 
   def initialize m, n
-    @height = m
-    @width = n
+    @height = m.to_i
+    @width = n.to_i
 
     @bitmap = create_bitmap
   end

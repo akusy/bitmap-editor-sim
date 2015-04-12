@@ -4,4 +4,5 @@ class Editor
   def create_image m, n
     @image = Image.new(m, n)
   end
+
 end
