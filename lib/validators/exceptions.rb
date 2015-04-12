@@ -1,8 +1,17 @@
-class BitmapSizeError < ArgumentError
+#=== Image creation errors ===
+class ImageError < ArgumentError
 end
 
-class NoImageError < ArgumentError
+class BitmapSizeError < ImageError
 end
 
-class CreateImageCommandError < ArgumentError
+class NoImageError < ImageError
+end
+
+
+#=== Command line errors ===
+class CliError < ArgumentError
+end
+
+class CreateImageCommandError < CliError
 end

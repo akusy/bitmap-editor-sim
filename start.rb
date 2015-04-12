@@ -8,10 +8,12 @@ require_all 'lib'
 
 cli = Cli.new
 loop do
-  p "X - Terminate the session"
-
   print "> "
   input = gets.chomp
 
-  break if cli.call(input) == 'break'
+  begin
+    break if cli.call(input) == 'break'
+  rescue ImageError, CliError  => e
+    p "Error: #{e.message}"
+  end
 end
