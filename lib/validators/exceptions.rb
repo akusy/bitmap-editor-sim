@@ -1,0 +1,2 @@
+class BitmapSizeError < ArgumentError
+end
