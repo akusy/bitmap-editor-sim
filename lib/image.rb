@@ -9,16 +9,14 @@ class Image
     @height = m.to_i
     @width = n.to_i
 
-    @bitmap = create_bitmap
+    clear_or_create_bitmap
+  end
+
+  def clear_or_create_bitmap
+    bitmap_size_validator
+
+    @bitmap = Array.new(width) { Array.new(height, DEFAULT_COLOUR) }
   end
 
   attr_reader :width, :height, :bitmap
-
-  private
-
-  def create_bitmap
-    bitmap_size_validator
-
-    Array.new(width) { Array.new(height, DEFAULT_COLOUR) }
-  end
 end

@@ -12,6 +12,7 @@ class Cli
     when 'I'
       create_image_command
     when 'C'
+      clear_the_table_command
     when 'L'
     when 'V'
     when 'H'
@@ -26,7 +27,7 @@ class Cli
 
   private
 
-  attr_reader :input, :argv
+  attr_reader :input, :argv, :editor
 
   def commands input
     input.split(' ')
@@ -36,5 +37,9 @@ class Cli
     create_image_command_validator(argv)
 
     editor.create_image(argv[1], argv[2])
+  end
+
+  def clear_the_table_command
+    editor.clear_image
   end
 end
