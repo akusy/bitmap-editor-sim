@@ -6,8 +6,8 @@ class Image
   COLOUR_RANGE = 'A'..'Z'
 
   def initialize m, n
-    @width = m.to_i
-    @height = n.to_i
+    @width = m
+    @height = n
 
     clear_or_create_bitmap
   end
@@ -25,6 +25,12 @@ class Image
       end
       print "\n"
     end
+  end
+
+  def colour_the_pixel x, y, c
+    bitmap_range_excess_validator(x, y)
+
+    bitmap[x-1][y-1] = c
   end
 
   attr_reader :width, :height, :bitmap

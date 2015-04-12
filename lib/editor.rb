@@ -17,6 +17,12 @@ class Editor
     image.print_bitmap
   end
 
+  def colour_the_pixel x, y, c
+    check_image
+
+    image.colour_the_pixel(x, y, c)
+  end
+
   private
 
   def check_image
