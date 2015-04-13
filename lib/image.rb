@@ -32,22 +32,40 @@ class Image
   def colour_the_pixel x, y, colour
     bitmap_range_excess_validator(x, y)
 
-    bitmap[x-1][y-1] = colour
+    bitmap[x][y] = colour
   end
 
   def fill_the_region x, y, colour
     bitmap_range_excess_validator(x, y)
 
-    old_colour = bitmap[x-1][y-1]
-    bitmap[x-1][y-1] = colour
+    old_colour = bitmap[x][y]
+    bitmap[x][y] = colour
 
     @neighbours_map = Array.new
 
-    neighbours_map.push([x-1, y-1])
+    neighbours_map.push([x, y])
 
     while neighbours_map.size > 0
       check_and_colour_neighbours(colour, old_colour)
     end
+  end
+
+  def draw_horizontal_segment x1, x2, y, colour
+    bitmap_range_excess_validator(y, x1)
+    bitmap_range_excess_validator(y, x2)
+
+    x1, x2 = [x1, x2].sort
+
+    (x1..x2).each{ |i| bitmap[y][i] = colour }
+  end
+
+  def draw_vertical_segment x, y1, y2, colour
+    bitmap_range_excess_validator(y1, x)
+    bitmap_range_excess_validator(y2, x)
+
+    y1, y2 = [y1, y2].sort
+
+    (y1..y2).each{ |i| bitmap[i][x] = colour }
   end
 
   private

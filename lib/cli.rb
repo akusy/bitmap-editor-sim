@@ -16,7 +16,9 @@ class Cli
     when 'L'
       colour_the_pixel_command
     when 'V'
+      draw_vertical_segment_command
     when 'H'
+      draw_horizontal_segment_command
     when 'F'
       fill_the_region_command
     when 'S'
@@ -60,5 +62,17 @@ class Cli
     colour_the_pixel_command_validator(argv)
 
     editor.fill_the_region(argv[1], argv[2], argv[3])
+  end
+
+  def draw_vertical_segment_command
+    draw_segment_command_validator(argv)
+
+    editor.draw_vertical_segment(argv[1], argv[2], argv[3], argv[4])
+  end
+
+  def draw_horizontal_segment_command
+    draw_segment_command_validator(argv)
+
+    editor.draw_horizontal_segment(argv[1], argv[2], argv[3], argv[4])
   end
 end

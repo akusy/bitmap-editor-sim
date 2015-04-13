@@ -20,13 +20,25 @@ class Editor
   def colour_the_pixel x, y, c
     check_image
 
-    image.colour_the_pixel(x, y, c)
+    image.colour_the_pixel(x-1, y-1, c)
   end
 
   def fill_the_region x, y, c
     check_image
 
-    image.fill_the_region(x, y, c)
+    image.fill_the_region(x-1, y-1, c)
+  end
+
+  def draw_horizontal_segment x1, x2, y, colour
+    check_image
+
+    image.draw_horizontal_segment(x1-1, x2-1, y-1, colour)
+  end
+
+  def draw_vertical_segment x, y1, y2, colour
+    check_image
+
+    image.draw_vertical_segment(x-1, y1-1, y2-1, colour)
   end
 
   private
