@@ -7,7 +7,7 @@ module Validators
       end
     end
 
-    def colour_the_pixel_validator argv
+    def colour_the_pixel_command_validator argv
       unless is_numerical(argv[1]) && is_numerical(argv[2]) && is_capital_letter(argv[3])
         raise CreateImageCommandError, 'Incorrect command arguments'
       end

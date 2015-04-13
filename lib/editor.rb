@@ -23,6 +23,12 @@ class Editor
     image.colour_the_pixel(x, y, c)
   end
 
+  def fill_the_region x, y, c
+    check_image
+
+    image.fill_the_region(x, y, c)
+  end
+
   private
 
   def check_image

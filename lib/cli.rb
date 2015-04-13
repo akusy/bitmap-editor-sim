@@ -18,6 +18,7 @@ class Cli
     when 'V'
     when 'H'
     when 'F'
+      fill_the_region_command
     when 'S'
       show_current_image_command
     when 'X'
@@ -50,8 +51,14 @@ class Cli
   end
 
   def colour_the_pixel_command
-    colour_the_pixel_validator(argv)
+    colour_the_pixel_command_validator(argv)
 
     editor.colour_the_pixel(argv[1], argv[2], argv[3])
+  end
+
+  def fill_the_region_command
+    colour_the_pixel_command_validator(argv)
+
+    editor.fill_the_region(argv[1], argv[2], argv[3])
   end
 end
