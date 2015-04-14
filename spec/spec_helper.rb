@@ -1,2 +1,2 @@
-require_relative '../start'
+require_relative '../config'
 require_all 'lib'
