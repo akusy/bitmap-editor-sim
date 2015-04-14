@@ -27,10 +27,13 @@ describe Cli do
 
     context "When command is incorrect" do
 
-      it 'raises exception due to incorrect create image command' do
+      it "raises exception due to incorrect create image command" do
         expect { cli.call "I 2" }.to raise_exception(CreateImageCommandError)
       end
 
+      it "raises exception due to exceeded image size" do
+        expect { cli.call "I 251 251" }.to raise_exception(BitmapSizeError)
+      end
     end
   end
 end
