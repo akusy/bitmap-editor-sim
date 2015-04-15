@@ -13,8 +13,5 @@ end
 class CliError < ArgumentError
 end
 
-class CreateImageCommandError < CliError
-end
-
-class ColourThePixelCommandError < CliError
+class IncorrectArgumentCommandError < CliError
 end

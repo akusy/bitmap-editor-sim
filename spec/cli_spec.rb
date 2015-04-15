@@ -57,7 +57,7 @@ describe Cli do
     context "When command is incorrect" do
 
       it "raises exception due to incorrect create image command" do
-        expect { cli.call "I 2" }.to raise_exception(CreateImageCommandError)
+        expect { cli.call "I 2" }.to raise_exception(IncorrectArgumentCommandError)
       end
 
       it "raises exception due to exceeded image size" do
@@ -65,19 +65,19 @@ describe Cli do
       end
 
       it "raises exception due to incorrect colour the pixel command" do
-        expect { cli.call "L 2 3" }.to raise_exception(ColourThePixelCommandError)
+        expect { cli.call "L 2 3" }.to raise_exception(IncorrectArgumentCommandError)
       end
 
       it "raises exception due to incorrect fill the region command" do
-        expect { cli.call "F 2 3" }.to raise_exception(ColourThePixelCommandError)
+        expect { cli.call "F 2 3" }.to raise_exception(IncorrectArgumentCommandError)
       end
 
       it "raises exception due to incorrect draw vertical segment command" do
-        expect { cli.call "V 2 3 6" }.to raise_exception(ColourThePixelCommandError)
+        expect { cli.call "V 2 3 6" }.to raise_exception(IncorrectArgumentCommandError)
       end
 
       it "raises exception due to incorrect draw horizontal segment command" do
-        expect { cli.call "H 1 2 3" }.to raise_exception(ColourThePixelCommandError)
+        expect { cli.call "H 1 2 3" }.to raise_exception(IncorrectArgumentCommandError)
       end
     end
   end

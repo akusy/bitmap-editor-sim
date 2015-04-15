@@ -3,19 +3,19 @@ module Validators
 
     def create_image_command_validator argv
       unless is_numerical(argv[1]) && is_numerical(argv[2])
-        raise CreateImageCommandError, 'Incorrect command arguments'
+        raise IncorrectArgumentCommandError, 'Incorrect command arguments'
       end
     end
 
     def colour_the_pixel_command_validator argv
       unless is_numerical(argv[1]) && is_numerical(argv[2]) && is_capital_letter(argv[3])
-        raise ColourThePixelCommandError, 'Incorrect command arguments'
+        raise IncorrectArgumentCommandError, 'Incorrect command arguments'
       end
     end
 
     def draw_segment_command_validator argv
       unless is_numerical(argv[1]) && is_numerical(argv[2]) && is_numerical(argv[3]) && is_capital_letter(argv[4])
-        raise ColourThePixelCommandError, 'Incorrect command arguments'
+        raise IncorrectArgumentCommandError, 'Incorrect command arguments'
       end
     end
 
