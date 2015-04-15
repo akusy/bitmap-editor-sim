@@ -21,12 +21,16 @@ class Image
   end
 
   def print_bitmap
+    image_print = String.new
+
     bitmap.each do |row|
       row.each do |pixel|
-        print pixel
+        image_print << pixel
       end
-      print "\n"
+      image_print << "\n"
     end
+
+    $stdout.print(image_print)
   end
 
   def colour_the_pixel x, y, colour
