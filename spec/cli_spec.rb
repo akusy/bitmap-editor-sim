@@ -52,6 +52,16 @@ describe Cli do
 
         cli.call "H 2 3 4 B"
       end
+
+      it "calls showing current image" do
+        expect_any_instance_of(Editor).to receive(:print_image)
+
+        cli.call "S"
+      end
+
+      it "calls terminating the program" do
+        expect(cli.call "X").to eq('break')
+      end
     end
 
     context "When command is incorrect" do
@@ -78,6 +88,10 @@ describe Cli do
 
       it "raises exception due to incorrect draw horizontal segment command" do
         expect { cli.call "H 1 2 3" }.to raise_exception(IncorrectArgumentCommandError)
+      end
+
+      it "does not recognize command" do
+        expect(cli.call "Q 1 2 3").to eq('Unrecognized command')
       end
     end
   end
