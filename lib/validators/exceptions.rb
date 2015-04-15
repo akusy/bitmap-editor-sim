@@ -15,3 +15,6 @@ end
 
 class CreateImageCommandError < CliError
 end
+
+class ColourThePixelCommandError < CliError
+end
