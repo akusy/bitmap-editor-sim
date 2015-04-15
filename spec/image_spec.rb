@@ -44,4 +44,14 @@ describe Image do
       expect(image.bitmap).to eq new_bitmap
     end
   end
+
+  describe "#print_bitmap" do
+    it "prints image" do
+      expectation = "OOO\nOOO\n"
+
+      expect($stdout).to receive(:print).with(expectation)
+
+      image.print_bitmap
+    end
+  end
 end
