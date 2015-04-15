@@ -72,6 +72,12 @@ class Image
     (y1..y2).each{ |i| bitmap[i][x] = colour }
   end
 
+  def transpose
+    @height, @width = width, height
+
+    @bitmap = bitmap.transpose
+  end
+
   private
 
   attr_reader :neighbours_map

@@ -23,6 +23,8 @@ class Cli
       fill_the_region_command
     when 'S'
       show_current_image_command
+    when 'T'
+      transpose_image_command
     when 'X'
       return 'break'
     else
@@ -74,5 +76,9 @@ class Cli
     draw_segment_command_validator(argv)
 
     editor.draw_horizontal_segment(argv[1], argv[2], argv[3], argv[4])
+  end
+
+  def transpose_image_command
+    editor.transpose
   end
 end

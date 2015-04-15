@@ -41,6 +41,12 @@ class Editor
     image.draw_vertical_segment(x-1, y1-1, y2-1, colour)
   end
 
+  def transpose
+    check_image
+
+    image.transpose
+  end
+
   private
 
   def check_image
