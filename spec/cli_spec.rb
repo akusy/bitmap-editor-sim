@@ -59,6 +59,12 @@ describe Cli do
         cli.call "S"
       end
 
+      it "calls showing current image" do
+        expect_any_instance_of(Editor).to receive(:transpose)
+
+        cli.call "T"
+      end
+
       it "calls terminating the program" do
         expect(cli.call "X").to eq('break')
       end

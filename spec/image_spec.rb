@@ -139,4 +139,17 @@ describe Image do
       end
     end
   end
+
+  describe "#transpose" do
+    it "transposes bitmap" do
+      width = image.width
+      height = image.height
+
+      image.transpose
+
+      expect(image.bitmap).to eq new_bitmap.transpose
+      expect(width).to eq image.height
+      expect(height).to eq image.width
+    end
+  end
 end

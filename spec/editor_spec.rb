@@ -140,4 +140,23 @@ describe Editor do
 
   end
 
+  describe "#transpose" do
+
+    context "When image exists" do
+      include_context "editor with image"
+
+      it "transposes image" do
+        expect(image).to receive(:transpose)
+
+        editor.transpose
+      end
+    end
+
+    context "When image does not exist" do
+      it "raises NoImageError" do
+        expect { editor.transpose }.to raise_exception(NoImageError)
+      end
+    end
+
+  end
 end
