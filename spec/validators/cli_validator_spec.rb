@@ -57,4 +57,3 @@ describe Validators::CliValidator do
 
   end
 end
-
