@@ -15,7 +15,7 @@ class Image
   end
 
   def clear_or_create_bitmap
-    bitmap_size_validator
+    bitmap_size_validator(width, height)
 
     @bitmap = Array.new(width) { Array.new(height, DEFAULT_COLOUR) }
   end
@@ -34,13 +34,13 @@ class Image
   end
 
   def colour_the_pixel x, y, colour
-    bitmap_range_excess_validator(x, y)
+    bitmap_range_excess_validator(width, height, x, y)
 
     bitmap[x][y] = colour
   end
 
   def fill_the_region x, y, colour
-    bitmap_range_excess_validator(x, y)
+    bitmap_range_excess_validator(width, height, x, y)
 
     old_colour = bitmap[x][y]
     bitmap[x][y] = colour
@@ -55,8 +55,8 @@ class Image
   end
 
   def draw_horizontal_segment x1, x2, y, colour
-    bitmap_range_excess_validator(y, x1)
-    bitmap_range_excess_validator(y, x2)
+    bitmap_range_excess_validator(width, height, y, x1)
+    bitmap_range_excess_validator(width, height, y, x2)
 
     x1, x2 = [x1, x2].sort
 
@@ -64,8 +64,8 @@ class Image
   end
 
   def draw_vertical_segment x, y1, y2, colour
-    bitmap_range_excess_validator(y1, x)
-    bitmap_range_excess_validator(y2, x)
+    bitmap_range_excess_validator(width, height, y1, x)
+    bitmap_range_excess_validator(width, height, y2, x)
 
     y1, y2 = [y1, y2].sort
 
