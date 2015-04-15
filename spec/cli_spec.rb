@@ -23,6 +23,18 @@ describe Cli do
         cli.call "I 2 3"
       end
 
+      it "calls clearing table" do
+        expect_any_instance_of(Editor).to receive(:clear_image)
+
+        cli.call "C"
+      end
+
+      it "calls colouring the pixel" do
+        expect_any_instance_of(Editor).to receive(:colour_the_pixel).with(2, 3, 'H')
+
+        cli.call "L 2 3 H"
+      end
+
     end
 
     context "When command is incorrect" do
@@ -33,6 +45,10 @@ describe Cli do
 
       it "raises exception due to exceeded image size" do
         expect { cli.call "I 251 251" }.to raise_exception(BitmapSizeError)
+      end
+
+      it "raises exception due to incorrect colour the pixel command" do
+        expect { cli.call "L 2 3" }.to raise_exception(ColourThePixelCommandError)
       end
     end
   end
