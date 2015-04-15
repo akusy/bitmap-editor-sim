@@ -20,6 +20,26 @@ describe Editor do
     end
   end
 
+  describe "#clear_image" do
+
+    context "When image exists" do
+      include_context "editor with image"
+
+      it "clears image" do
+        expect(image).to receive(:clear_or_create_bitmap)
+
+        editor.clear_image
+      end
+    end
+
+    context "When image does not exist" do
+      it "raises NoImageError" do
+        expect { editor.clear_image }.to raise_exception(NoImageError)
+      end
+    end
+
+  end
+
   describe "#print_image" do
 
     context "When image exists" do
