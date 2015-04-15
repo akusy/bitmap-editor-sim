@@ -133,9 +133,9 @@ describe Image do
 
     context "When pixels coords are outside image size range" do
       it "raises BitmapSizeError" do
-        expect { image.draw_horizontal_segment(112, 1, 1, 'I') }.to raise_exception(BitmapSizeError)
-        expect { image.draw_horizontal_segment(1, 1, 112, 'I') }.to raise_exception(BitmapSizeError)
-        expect { image.draw_horizontal_segment(1, 112, 1, 'I') }.to raise_exception(BitmapSizeError)
+        expect { image.draw_vertical_segment(112, 1, 1, 'I') }.to raise_exception(BitmapSizeError)
+        expect { image.draw_vertical_segment(1, 1, 112, 'I') }.to raise_exception(BitmapSizeError)
+        expect { image.draw_vertical_segment(1, 112, 1, 'I') }.to raise_exception(BitmapSizeError)
       end
     end
   end
