@@ -35,6 +35,11 @@ describe Cli do
         cli.call "L 2 3 H"
       end
 
+      it "calls filling the region" do
+        expect_any_instance_of(Editor).to receive(:fill_the_region).with(2, 3, 'I')
+
+        cli.call "F 2 3 I"
+      end
     end
 
     context "When command is incorrect" do
@@ -49,6 +54,10 @@ describe Cli do
 
       it "raises exception due to incorrect colour the pixel command" do
         expect { cli.call "L 2 3" }.to raise_exception(ColourThePixelCommandError)
+      end
+
+      it "raises exception due to incorrect fill the region command" do
+        expect { cli.call "F 2 3" }.to raise_exception(ColourThePixelCommandError)
       end
     end
   end
