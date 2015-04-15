@@ -40,6 +40,18 @@ describe Cli do
 
         cli.call "F 2 3 I"
       end
+
+      it "calls drawing vertical segment" do
+        expect_any_instance_of(Editor).to receive(:draw_vertical_segment).with(2, 3, 4, 'A')
+
+        cli.call "V 2 3 4 A"
+      end
+
+      it "calls drawing horizontal segment" do
+        expect_any_instance_of(Editor).to receive(:draw_horizontal_segment).with(2, 3, 4, 'B')
+
+        cli.call "H 2 3 4 B"
+      end
     end
 
     context "When command is incorrect" do
@@ -58,6 +70,14 @@ describe Cli do
 
       it "raises exception due to incorrect fill the region command" do
         expect { cli.call "F 2 3" }.to raise_exception(ColourThePixelCommandError)
+      end
+
+      it "raises exception due to incorrect draw vertical segment command" do
+        expect { cli.call "V 2 3 6" }.to raise_exception(ColourThePixelCommandError)
+      end
+
+      it "raises exception due to incorrect draw horizontal segment command" do
+        expect { cli.call "H 1 2 3" }.to raise_exception(ColourThePixelCommandError)
       end
     end
   end

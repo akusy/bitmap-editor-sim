@@ -15,7 +15,7 @@ module Validators
 
     def draw_segment_command_validator argv
       unless is_numerical(argv[1]) && is_numerical(argv[2]) && is_numerical(argv[3]) && is_capital_letter(argv[4])
-        raise CreateImageCommandError, 'Incorrect command arguments'
+        raise ColourThePixelCommandError, 'Incorrect command arguments'
       end
     end
 
