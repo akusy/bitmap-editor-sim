@@ -10,3 +10,9 @@ There are 7 supported commands:
 *  F X Y C - Fill the region R with the colour C. R is defined as: Pixel (X,Y) belongs to R. Any other pixel which is the same colour as (X,Y) and shares a common side with any pixel in R also belongs to this region.
 *  S - Show the contents of the current image
 *  X - Terminate the session
+
+# New feature
+
+New supported commands:
+
+* T - Transpose, image rotate and mirror
